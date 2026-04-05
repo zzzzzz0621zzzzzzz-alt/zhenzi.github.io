@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Video files (not needed, using external links)
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Large folders
+sysufath/
+nfmedia/
+cctv-gd/
+sample_html/
+frontend-slides/
+werkzeug_cache/
+__pycache__/
+.Rapp.history
+
+# Data files
+*.csv
+*.json
