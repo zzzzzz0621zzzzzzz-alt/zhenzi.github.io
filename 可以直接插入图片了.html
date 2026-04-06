@@ -6121,6 +6121,18 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                         return;
                     }
 
+                    // 如果是外部链接（如抖音），直接在新窗口打开
+                    if (link && /^https?:\/\//i.test(link)) {
+                        window.open(link, "_blank", "noopener,noreferrer");
+                        // 仍然更新预览区域显示
+                        preview.classList.add("cover-only");
+                        preview.style.backgroundImage = `url('${cover}')`;
+                        preview.innerHTML = `
+                            <div class="video-guide">已在新窗口打开视频</div>
+                        `;
+                        return;
+                    }
+
                     preview.classList.add("cover-only");
                     preview.style.backgroundImage = `url('${cover}')`;
                     preview.innerHTML = `
