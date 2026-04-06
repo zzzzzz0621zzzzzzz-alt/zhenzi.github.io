@@ -38,9 +38,9 @@ wheels/
 *.mkv
 
 # Large folders
-sysufath/
-nfmedia/
-cctv-gd/
+# sysufath/
+# nfmedia/
+# cctv-gd/
 sample_html/
 frontend-slides/
 werkzeug_cache/
