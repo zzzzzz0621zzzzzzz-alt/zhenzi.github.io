@@ -232,6 +232,27 @@
                     --accent-light: rgba(37, 99, 235, 0.2);
                 }
             }
+
+            /* 移动端单列布局优化 */
+            .hero-grid,
+            .experience-head,
+            .experience-body,
+            .experience-layout.media,
+            .experience-layout.dashboard,
+            .video-shell,
+            .data-story-layout,
+            .profile-grid,
+            .works-video-stage,
+            .timeline-track,
+            .work-grid,
+            .gallery-grid,
+            .contact-strip,
+            .metrics-grid,
+            .story-card.compact ul,
+            .mini-panel,
+            .board-bars {
+                grid-template-columns: 1fr;
+            }
         }
 
         * {
@@ -6207,13 +6228,12 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                                         data-orientation="${category.items[0].orientation || "landscape"}"
                                         style="background-image: url('${category.items[0].image || ""}');"
                                     >
-                                        <div class="monitor-tip">点右侧切换，点主屏播放</div>
                                         <button class="monitor-play" type="button">播放当前作品</button>
                                     </div>
                                 </div>
                             </article>
                             <div class="works-video-list is-guiding">
-                                <p class="works-guide-copy">右侧点选作品类型，左侧会切换为对应封面或视频；有外链的作品会提供原视频跳转。</p>
+
                                 ${category.items.map((item, itemIndex) => `
                                     <button
                                         class="work-video-item ${itemIndex === 0 ? "is-active" : ""}"
@@ -6347,10 +6367,9 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                 preview.dataset.embed = embed;
                 preview.dataset.orientation = orientation;
                 preview.style.backgroundImage = `url('${image}')`;
-                preview.innerHTML = `
-                    <div class="monitor-tip">点右侧切换，点主屏播放</div>
-                    <button class="monitor-play" type="button">播放当前作品</button>
-                `;
+                 preview.innerHTML = `
+                     <button class="monitor-play" type="button">播放当前作品</button>
+                 `;
             };
 
             const mountWorksPreview = (preview) => {

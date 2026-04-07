@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蔡臻晗 | 互联网求职简历作品集</title>
+    <!-- GitHub Pages部署测试 -->
     <style>
         :root {
             /* 浅色主题 - 马卡龙色系 */
@@ -5511,7 +5512,7 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                             description: "",
                             cover: "相关照片/nfmedia/微信图片_20260324153857_833_7.png",
                             embed: "https://player.bilibili.com/player.html?isOutside=true&aid=116309996212271&bvid=BV1QdXUB9EZb&cid=37060412467&p=1",
-                            link: "videoworks/粤疆同心 点亮疏附1127.mp4"
+                            link: "videoworks/粤疆同心，点亮疏附1127.mp4"
                         },
                         {
                             title: "广东海洋牧场黑科技",
@@ -6006,13 +6007,12 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                                         data-orientation="${category.items[0].orientation || "landscape"}"
                                         style="background-image: url('${category.items[0].image || ""}');"
                                     >
-                                        <div class="monitor-tip">点右侧切换，点主屏播放</div>
                                         <button class="monitor-play" type="button">播放当前作品</button>
                                     </div>
                                 </div>
                             </article>
                             <div class="works-video-list is-guiding">
-                                <p class="works-guide-copy">右侧点选作品类型，左侧会切换为对应封面或视频；有外链的作品会提供原视频跳转。</p>
+
                                 ${category.items.map((item, itemIndex) => `
                                     <button
                                         class="work-video-item ${itemIndex === 0 ? "is-active" : ""}"
@@ -6120,6 +6120,18 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                         return;
                     }
 
+                    // 如果是外部链接（如抖音），直接在新窗口打开
+                    if (link && /^https?:\/\//i.test(link)) {
+                        window.open(link, "_blank", "noopener,noreferrer");
+                        // 仍然更新预览区域显示
+                        preview.classList.add("cover-only");
+                        preview.style.backgroundImage = `url('${cover}')`;
+                        preview.innerHTML = `
+                            <div class="video-guide">已在新窗口打开视频</div>
+                        `;
+                        return;
+                    }
+
                     preview.classList.add("cover-only");
                     preview.style.backgroundImage = `url('${cover}')`;
                     preview.innerHTML = `
@@ -6146,10 +6158,9 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                 preview.dataset.embed = embed;
                 preview.dataset.orientation = orientation;
                 preview.style.backgroundImage = `url('${image}')`;
-                preview.innerHTML = `
-                    <div class="monitor-tip">点右侧切换，点主屏播放</div>
-                    <button class="monitor-play" type="button">播放当前作品</button>
-                `;
+                 preview.innerHTML = `
+                     <button class="monitor-play" type="button">播放当前作品</button>
+                 `;
             };
 
             const mountWorksPreview = (preview) => {
