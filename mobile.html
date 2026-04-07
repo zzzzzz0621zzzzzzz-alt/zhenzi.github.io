@@ -2398,8 +2398,8 @@
             color: #fff;
             font-size: 28px;
             font-weight: 800;
-            background: transparent;
-            box-shadow: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
             animation: toolFloat 4.8s ease-in-out infinite;
         }
 
@@ -2424,17 +2424,7 @@
             display: none;
         }
 
-        .tool-chip.jianying .tool-icon {
-            background: transparent;
-        }
 
-        .tool-chip.keling .tool-icon {
-            background: transparent;
-        }
-
-        .tool-chip.drone .tool-icon {
-            background: transparent;
-        }
 
         @keyframes toolFloat {
             0% { transform: translateY(0px); }
