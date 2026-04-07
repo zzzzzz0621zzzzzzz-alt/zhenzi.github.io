@@ -2,8 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>蔡臻晗 | iOS版作品集</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蔡臻晗 | 互联网求职简历作品集</title>
+    <!-- GitHub Pages部署测试 -->
     <style>
         :root {
             /* 浅色主题 - 马卡龙色系 */
@@ -23,10 +24,10 @@
             --accent-4: #8ECAE6;
             --accent-5: #93C5FD;
             --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-            --radius-xl: 20px;
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --nav-height: 60px;
+            --radius-xl: 24px;
+            --radius-lg: 20px;
+            --radius-md: 16px;
+            --nav-height: 72px;
             --max-width: 1200px;
             /* 背景渐变 */
             --bg-gradient-1: rgba(37, 99, 235, 0.08);
@@ -52,207 +53,6 @@
             --bg-gradient-1: rgba(37, 99, 235, 0.07);
             --bg-gradient-2: rgba(96, 165, 250, 0.05);
             --bg-gradient-3: rgba(14, 165, 233, 0.04);
-        }
-
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            :root {
-                --nav-height: 56px;
-                --radius-xl: 18px;
-                --radius-lg: 14px;
-                --radius-md: 10px;
-            }
-            
-            body {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-            
-            .site-nav .shell {
-                flex-direction: column;
-                padding: 12px 16px;
-                gap: 10px;
-            }
-            
-            .nav-links {
-                width: 100%;
-                justify-content: space-between;
-                flex-wrap: wrap;
-            }
-            
-            .nav-links a {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            
-            .hero-card {
-                padding: 24px 20px !important;
-            }
-            
-            .section-head h2 {
-                font-size: 28px;
-            }
-            
-            .experience-panel {
-                margin-bottom: 24px;
-            }
-            
-            .photo-collage {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
-            .photo-collage img {
-                height: 200px;
-            }
-            
-            .video-item {
-                min-width: 100%;
-                margin-bottom: 12px;
-            }
-            
-            .button {
-                padding: 12px 20px;
-                font-size: 16px;
-            }
-            
-            .footer-shell {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .brand-subtitle {
-                font-size: 14px;
-                opacity: 0.8;
-            }
-            
-            /* 简化气泡动画 */
-            .bubbles-overlay {
-                display: none; /* 移动端隐藏复杂动画以提升性能 */
-            }
-            
-            /* 优化触摸目标大小 */
-            button, .button, .video-item, .nav-links a {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
-            /* 简化网格布局 */
-            .dashboard-board, .visual-cluster {
-                flex-direction: column;
-            }
-            
-            /* 视频卡片优化 */
-            .video-embed {
-                height: 200px;
-            }
-            
-            /* 触摸设备优化 */
-            .touch-device button,
-            .touch-device .button,
-            .touch-device .video-item {
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-            
-            .touch-device .nav-links a:active {
-                background-color: var(--accent-light);
-                transform: scale(0.98);
-            }
-            
-            /* iOS特定优化 */
-            /* iOS安全区域适配 */
-            .shell {
-                padding-left: max(16px, env(safe-area-inset-left));
-                padding-right: max(16px, env(safe-area-inset-right));
-            }
-            
-            .site-nav {
-                padding-top: max(8px, env(safe-area-inset-top));
-            }
-            
-            .footer-shell {
-                padding-bottom: max(20px, env(safe-area-inset-bottom));
-            }
-            
-            /* iOS Safari滚动优化 */
-            body {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            /* 防止iOS文本缩放 */
-            html {
-                -webkit-text-size-adjust: 100%;
-            }
-            
-            /* iOS点击高亮优化 */
-            a, button, .button, .video-item {
-                -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
-            }
-            
-            /* iOS字体优化 */
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-                -webkit-font-smoothing: antialiased;
-            }
-            
-            /* iOS长按菜单优化 */
-            img {
-                -webkit-touch-callout: none;
-            }
-            
-            a, button {
-                -webkit-touch-callout: default;
-            }
-            
-            /* iOS输入优化 */
-            input, textarea {
-                -webkit-appearance: none;
-                border-radius: var(--radius-md);
-            }
-            
-            /* iOS按钮样式优化 */
-            button, .button {
-                -webkit-appearance: none;
-                border-radius: var(--radius-lg);
-            }
-            
-            /* 适配iOS状态栏 */
-            @supports (padding: max(0px)) {
-                .site-nav {
-                    padding-top: max(8px, env(safe-area-inset-top));
-                    height: calc(var(--nav-height) + env(safe-area-inset-top));
-                }
-            }
-            
-            /* iOS暗色模式优化 */
-            @media (prefers-color-scheme: dark) {
-                :root {
-                    --accent-light: rgba(37, 99, 235, 0.2);
-                }
-            }
-
-            /* 移动端单列布局优化 */
-            .hero-grid,
-            .experience-head,
-            .experience-body,
-            .experience-layout.media,
-            .experience-layout.dashboard,
-            .video-shell,
-            .data-story-layout,
-            .profile-grid,
-            .works-video-stage,
-            .timeline-track,
-            .work-grid,
-            .gallery-grid,
-            .contact-strip,
-            .metrics-grid,
-            .story-card.compact ul,
-            .mini-panel,
-            .board-bars {
-                grid-template-columns: 1fr;
-            }
         }
 
         * {
@@ -5498,7 +5298,7 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
         <div class="shell glass">
             <div class="brand">
                 <strong>蔡臻晗</strong>
-                <span class="brand-subtitle">作品集</span>
+                <span>Resume Portfolio / Media & Content</span>
             </div>
             <div class="nav-links">
                 <a href="#home">首页</a>
@@ -5635,27 +5435,6 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
         </div>
         <a class="button button-secondary" href="#home">返回顶部</a>
     </footer>
-
-    <!-- 移动端触摸优化 -->
-    <script>
-    // 防止双击缩放
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function(event) {
-        const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-    
-    // 优化按钮点击反馈
-    document.addEventListener('touchstart', function() {}, {passive: true});
-    
-    // 检测移动端并添加类
-    if ('ontouchstart' in window || navigator.maxTouchPoints) {
-        document.documentElement.classList.add('touch-device');
-    }
-    </script>
 
     <script>
         const experienceData = [
@@ -6229,12 +6008,13 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                                         data-orientation="${category.items[0].orientation || "landscape"}"
                                         style="background-image: url('${category.items[0].image || ""}');"
                                     >
+                                        <div class="monitor-tip">点右侧切换，点主屏播放</div>
                                         <button class="monitor-play" type="button">播放当前作品</button>
                                     </div>
                                 </div>
                             </article>
                             <div class="works-video-list is-guiding">
-
+                                <p class="works-guide-copy">右侧点选作品类型，左侧会切换为对应封面或视频；有外链的作品会提供原视频跳转。</p>
                                 ${category.items.map((item, itemIndex) => `
                                     <button
                                         class="work-video-item ${itemIndex === 0 ? "is-active" : ""}"
@@ -6342,6 +6122,18 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                         return;
                     }
 
+                    // 如果是外部链接（如抖音），直接在新窗口打开
+                    if (link && /^https?:\/\//i.test(link)) {
+                        window.open(link, "_blank", "noopener,noreferrer");
+                        // 仍然更新预览区域显示
+                        preview.classList.add("cover-only");
+                        preview.style.backgroundImage = `url('${cover}')`;
+                        preview.innerHTML = `
+                            <div class="video-guide">已在新窗口打开视频</div>
+                        `;
+                        return;
+                    }
+
                     preview.classList.add("cover-only");
                     preview.style.backgroundImage = `url('${cover}')`;
                     preview.innerHTML = `
@@ -6368,9 +6160,10 @@ h1, h2, h3, h4, strong, .role-line, .brand strong {
                 preview.dataset.embed = embed;
                 preview.dataset.orientation = orientation;
                 preview.style.backgroundImage = `url('${image}')`;
-                 preview.innerHTML = `
-                     <button class="monitor-play" type="button">播放当前作品</button>
-                 `;
+                preview.innerHTML = `
+                    <div class="monitor-tip">点右侧切换，点主屏播放</div>
+                    <button class="monitor-play" type="button">播放当前作品</button>
+                `;
             };
 
             const mountWorksPreview = (preview) => {
